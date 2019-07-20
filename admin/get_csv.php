@@ -24,14 +24,14 @@ $database = $firebase->getDatabase();
     $newPost->getKey(); // => -KVr5eu8gcTv7_AHb-3-
     $newPost->getUri(); // => https://my-project.firebaseio.com/blog/posts/-KVr5eu8gcTv7_AHb-3-
   */$jsonString= json_encode($newPost->getValue()); // Fetches the data from the realtime database
-    //$jsonDecoded = json_decode($jsonString, true);
-    $outString='['.$jsonString.']';
+    
     $jsonDecoded = json_decode($jsonString,True);
-    unset($jsonDecoded[0]);
-    array_values($jsonDecoded);
+    //unset($jsonDecoded[0]);
+    //array_values($jsonDecoded);
+    $jsonDecoded[0] = Array("age","attendance","mobile","name","roll","saving","total");
     print_r($jsonDecoded);
 
-    $csvFileName = 'example.csv';
+    $csvFileName = 'Beginners_Students.csv';
  
     //Open file pointer.
     $fp = fopen($csvFileName, 'w');
@@ -45,8 +45,6 @@ $database = $firebase->getDatabase();
     //Finally, close the file pointer.
     fclose($fp);
     
-
-
 
 
 
