@@ -19,6 +19,7 @@ if ($handle) {
         if (empty($fields)) {
             $fields = $row;
             continue;
+            
         }
         foreach ($row as $k=>$value) {
             if(is_numeric($value)){
@@ -37,7 +38,7 @@ array_values($array);
 
 $database = $firebase->getDatabase();
     $newPost = $database
-    ->getReference('Beginners')->getChild('Students2')
+    ->getReference('Beginners')->getChild('Students')
     ->set($array);
     /*$newPost->getKey(); // => -KVr5eu8gcTv7_AHb-3-
     $newPost->getUri(); // => https://my-project.firebaseio.com/blog/posts/-KVr5eu8gcTv7_AHb-3-
