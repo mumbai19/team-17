@@ -22,7 +22,7 @@ public class ActivityPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_page);
 
-        toolbar = findViewById(R.id.accout_setting);
+        toolbar = findViewById(R.id.activity_page_toolbar);
         toolbar.setTitle("Activity Page");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -47,9 +47,8 @@ public class ActivityPage extends AppCompatActivity {
                 }else if(TextUtils.isEmpty(aDesc)){
                     Toast.makeText(ActivityPage.this, "Enter the description", Toast.LENGTH_SHORT).show();
                 }else{
-                    DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("Beginner").child("Activity")
-                            .child(aTheme).child(aName);
-                    db.setValue(aDesc);
+                    DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("Beginner").child("Activity");
+                    db.push().setValue(aDesc);
                 }
             }
         });
