@@ -33,7 +33,7 @@ public class BeginnerActivity extends AppCompatActivity {
         viewDatabase.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(BeginnerActivity.this, AttendanceActivity.class);
+                Intent i = new Intent(BeginnerActivity.this, Addstudent.class);
                 startActivity(i);
             }
         });

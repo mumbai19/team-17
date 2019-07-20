@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.poojan.projectjpmc.Models.Student;
 import com.google.firebase.database.DatabaseReference;
@@ -30,8 +31,9 @@ public class Addstudent extends AppCompatActivity {
                 Student student = new Student(name.getText().toString(), Long.parseLong(mobile.getText().toString()),
                         rollno.getText().toString(), Integer.parseInt(age.getText().toString()), 0, 0 ,0);
                 DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("Beginners")
-                        .child("Students").child(rollno.toString());
-                db.setValue(student);
+                        .child("Students");
+                db.child(rollno.getText().toString()).setValue(student);
+                Toast.makeText(Addstudent.this, "added successfully", Toast.LENGTH_SHORT).show();
             }
         });
     }
