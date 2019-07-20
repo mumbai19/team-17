@@ -1,5 +1,6 @@
 package com.example.poojan.projectjpmc;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -34,6 +35,14 @@ public class BeginnerActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(BeginnerActivity.this, AttendanceActivity.class);
+                startActivity(i);
+            }
+        });
+
+        activity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(BeginnerActivity.this, ActivityPage.class);
                 startActivity(i);
             }
         });
