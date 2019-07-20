@@ -1,5 +1,3 @@
-<?php
-?>
 <!DOCTYPE html>
 <html>
 <link rel="stylesheet" href="style.css">
@@ -10,7 +8,7 @@
 <div class="header">
 	<h2>LOGIN</h2>
 </div>
-<form method="post" action="login.php">
+<form method="post" action="loginadmin.php">
 	
 	<div class="input-group">
 		<label>Email</label>
