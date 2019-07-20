@@ -10,8 +10,8 @@ import android.widget.Button;
 
 public class BeginnerActivity extends AppCompatActivity {
 
-    private CardView attendance, savings, stars, activity, viewDatabase, downloadRecords;
-    Button attedit, attview, attedit4, attview4;
+    private CardView attendance, savings, stars, activity, downloadRecords;
+    Button attedit, attview, attedit4, attview4, viewDatabase, editDatabase, viewStar, editStar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +22,10 @@ public class BeginnerActivity extends AppCompatActivity {
         savings = findViewById(R.id.savings);
         stars = findViewById(R.id.stars);
         activity = findViewById(R.id.activity);
-        viewDatabase = findViewById(R.id.viewDatabase);
+        viewDatabase = findViewById(R.id.att_view2);
+        editDatabase = findViewById(R.id.att_edit2);
+        viewStar = findViewById(R.id.att_view3);
+        editStar = findViewById(R.id.att_edit3);
         downloadRecords = findViewById(R.id.downloadRecords);
         attedit = findViewById(R.id.att_edit);
         attedit4 = findViewById(R.id.att_edit4);
@@ -46,11 +49,31 @@ public class BeginnerActivity extends AppCompatActivity {
         viewDatabase.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent i = new Intent(BeginnerActivity.this, ViewDatabaseActivity.class);
+                startActivity(i);
+            }
+        });
+        editDatabase.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 Intent i = new Intent(BeginnerActivity.this, Addstudent.class);
                 startActivity(i);
             }
         });
-
+        editStar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(BeginnerActivity.this, StarActivity.class);
+                startActivity(i);
+            }
+        });
+        viewStar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(BeginnerActivity.this, ViewStarActivity.class);
+                startActivity(i);
+            }
+        });
         attedit4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -29,7 +29,8 @@ public class Addstudent extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Student student = new Student(name.getText().toString(), Long.parseLong(mobile.getText().toString()),
-                        rollno.getText().toString(), Integer.parseInt(age.getText().toString()), 0, 0 ,0);
+                        rollno.getText().toString(), Integer.parseInt(age.getText().toString()), 0, 0 ,
+                        0,0,0,0,0,0);
                 DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("Beginners")
                         .child("Students");
                 db.child(rollno.getText().toString()).setValue(student);
