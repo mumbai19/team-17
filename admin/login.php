@@ -12,10 +12,9 @@ $firebase = (new Factory)
     ->create();
 
 $database = $firebase->getDatabase();
-try {
     $newPost = $database
-    ->getReference('user_details')
-    ->push([
+    ->getReference('Beginners')->getChild('Students');
+/*    ->push([
         'email' => 'Post title',
         'name' => 'This should probably be longer.',
         'token' => 'This should probably be longer.',
@@ -24,16 +23,28 @@ try {
     ]);
     $newPost->getKey(); // => -KVr5eu8gcTv7_AHb-3-
     $newPost->getUri(); // => https://my-project.firebaseio.com/blog/posts/-KVr5eu8gcTv7_AHb-3-
+  */$jsonString= json_encode($newPost->getValue()); // Fetches the data from the realtime database
+    //$jsonDecoded = json_decode($jsonString, true);
+    $outString='['.$jsonString.']';
+    $jsonDecoded = json_decode($jsonString,True);
+    unset($jsonDecoded[0]);
+    array_values($jsonDecoded);
+    print_r($jsonDecoded);
+
+    $csvFileName = 'example.csv';
+ 
+    //Open file pointer.
+    $fp = fopen($csvFileName, 'w');
+     
+    //Loop through the associative array.
+    foreach($jsonDecoded as $row){
+        //Write the row to the CSV file.
+        fputcsv($fp, $row);
+    }
+     
+    //Finally, close the file pointer.
+    fclose($fp);
     
-    print_r($newPost->getValue()); // Fetches the data from the realtime database
-} catch (ClientException $e) {
-    // catches all ClientExceptions
-} catch (RequestException $e) {
-    // catches all RequestExceptions
-    print_r($e);
-}
-
-
 
 
 
