@@ -19,7 +19,7 @@ $firebase = (new Factory)
 
 $database = $firebase->getDatabase();
     $newPost = $database
-    ->getReference('Beginners')->getChild('Students2')
+    ->getReference('Mentors')
     ->set([
         'name' => $name,
         'email' => $email,
