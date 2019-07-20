@@ -35,7 +35,7 @@
         android:orientation="vertical"
         android:weightSum="5">
         <android.support.v7.widget.CardView
-            android:id="@+id/donor_card"
+            android:id="@+id/beginner_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -67,7 +67,7 @@
         </android.support.v7.widget.CardView>
 
         <android.support.v7.widget.CardView
-            android:id="@+id/volunteer_card"
+            android:id="@+id/foundation_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -98,7 +98,7 @@
         </android.support.v7.widget.CardView>
 
         <android.support.v7.widget.CardView
-            android:id="@+id/ngo_card"
+            android:id="@+id/transit_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -129,7 +129,7 @@
         </android.support.v7.widget.CardView>
 
         <android.support.v7.widget.CardView
-            android:id="@+id/industry_card"
+            android:id="@+id/discovery_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -160,7 +160,7 @@
         </android.support.v7.widget.CardView>
 
         <android.support.v7.widget.CardView
-            android:id="@+id/society_card"
+            android:id="@+id/dream_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
