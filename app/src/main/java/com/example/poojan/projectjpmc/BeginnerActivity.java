@@ -39,6 +39,16 @@ public class BeginnerActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        savings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(BeginnerActivity.this, SavingsActivity.class);
+                startActivity(i);
+            }
+        });
+
+
         attview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

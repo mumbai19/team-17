@@ -30,6 +30,7 @@
         <activity android:name=".ActivityView" />
         <activity android:name=".Addstudent" />
         <activity android:name=".AttendanceActivity" />
+        <activity android:name=".SavingsActivity" />
         <activity android:name=".ViewDatabaseActivity" />
         <activity android:name=".ViewActivitiesActivity" />
         <activity android:name=".ViewAttendanceActivity" />
