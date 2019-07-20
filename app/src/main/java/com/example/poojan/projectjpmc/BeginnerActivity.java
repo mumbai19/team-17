@@ -11,7 +11,7 @@ import android.widget.Button;
 public class BeginnerActivity extends AppCompatActivity {
 
     private CardView attendance, savings, stars, activity, viewDatabase, downloadRecords;
-    Button attedit, attview;
+    Button attedit, attview, attedit4, attview4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +25,9 @@ public class BeginnerActivity extends AppCompatActivity {
         viewDatabase = findViewById(R.id.viewDatabase);
         downloadRecords = findViewById(R.id.downloadRecords);
         attedit = findViewById(R.id.att_edit);
+        attedit4 = findViewById(R.id.att_edit4);
         attview = findViewById(R.id.att_view);
+        attview4 = findViewById(R.id.att_view4);
 
         attedit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,10 +51,18 @@ public class BeginnerActivity extends AppCompatActivity {
             }
         });
 
-        activity.setOnClickListener(new View.OnClickListener() {
+        attedit4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(BeginnerActivity.this, ActivityPage.class);
+                startActivity(i);
+            }
+        });
+
+        attview4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(BeginnerActivity.this, ViewActivitiesActivity.class);
                 startActivity(i);
             }
         });
