@@ -26,6 +26,8 @@
         <activity android:name=".Home" />
         <activity android:name=".AccountSetting" />
         <activity android:name=".BeginnerActivity" />
+        <activity android:name=".AttendanceActivity" />
+        <activity android:name=".ViewDatabaseActivity"></activity>
     </application>
 
 </manifest>
