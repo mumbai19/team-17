@@ -1,0 +1,86 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link href="style.css" rel="stylesheet">
+
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<!DOCTYPE html>
+<html>
+    
+<head>
+	<title>My Awesome Login Page</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+</head>
+<!--Coded with love by Mutiullah Samim-->
+<body>
+	<div class="container h-100">
+		<div class="d-flex justify-content-center h-100">
+			<div class="user_card">
+				<div class="d-flex justify-content-center">
+					<div class="brand_logo_container">
+						<img src="tl-logo.jpg" class="brand_logo" alt="Logo">
+					</div>
+				</div>
+				<div class="d-flex justify-content-center form_container">
+						
+						<div class="input-group mb-3">
+							<form action="get_csv.php">
+							<input type="submit" value="Download Report" class="form-control input_user">
+							</form>
+						</div>
+						<br><br>
+						<div class="input-group mb-3">
+							<form action="put_csv.php">
+							<input type="file" value="Upload Report" class="form-control input_user">
+							<input type="submit" value="Upload Report" class="form-control input_user">
+							</form>
+						</div>
+						
+				</div>
+				<div class="d-flex justify-content-center mt-3 login_container">
+					<button type="button" name="button" class="btn login_btn" onclick="window.location.href='addmentor.html'">Add Mentor</button>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+
+<html>
+<link rel="stylesheet" href="style.css">
+
+<title>Admin Dashboard</title>
+<body>
+
+<div class="header">
+	<h2>ADMIN DASHBOARD</h2>
+</div>
+<form method="post" action="loginadmin.html">
+	
+	<div class="input-group">
+		<label>Email</label>
+		<input type="email" name="email" value="">
+	</div>
+	<div class="input-group">
+		<label>Password</label>
+		<input type="password" name="password_1">
+	</div>
+	
+	<div class="input-group">
+		<button type="submit" class="btn" name="submit_btn">Login</button>
+	</div>
+</form>
+</body>
+</html>
+<a href="viewReports.php" class="btn btn-info" role="button">Reports</a>
+<br>
+<br>
+<a href="addMentor.php" class="btn btn-info"
+   role="button">Allocate Mentors</a>
+    </body>
+</html>
+    
