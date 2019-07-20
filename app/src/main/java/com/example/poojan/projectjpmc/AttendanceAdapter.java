@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -23,8 +24,11 @@ import android.widget.Toast;
 //import com.google.android.gms.flags.impl.SharedPreferencesFactory;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -33,82 +37,82 @@ import java.util.ArrayList;
 
 import static android.content.Context.MODE_PRIVATE;
 
-public class AttendanceAdapter extends RecyclerView.Adapter<AttendanceAdapter.AttendanceHolder> {
-    private static final String TAG = "StudentsAdapter";
-    private Context mContext;
-    private FirebaseDatabase firebaseDatabase;
-    private DatabaseReference databaseReference;
-    private FirebaseAuth auth;
-    private ArrayList<Student> mlist;
-    private int flag ;
-    private Student requests;
-    private FirebaseUser firebaseUser;
-    private String pk;
+public class AttendanceAdapter extends RecyclerView.ViewHolder {
 
-    public AttendanceAdapter(Context context, ArrayList<Student> list, int flag) {
-        mContext = context;
-        auth = FirebaseAuth.getInstance();
-        databaseReference = FirebaseDatabase.getInstance().getReference("students");
-        mlist = list;
-        this.flag = flag;
+    TextView rollno, name, attendance, total;
+    Button btnpresent, btnabsent;
+    String aRollno, aName;
+    Context context;
+    public AttendanceAdapter(View itemView) {
+        super(itemView);
 
+        rollno = itemView.findViewById(R.id.att_rollno);
+        name = itemView.findViewById(R.id.att_name);
+        attendance = itemView.findViewById(R.id.att_att);
+        total = itemView.findViewById(R.id.att_tot);
+        btnpresent = itemView.findViewById(R.id.att_present);
+        btnabsent = itemView.findViewById(R.id.att_absent);
 
-//        Log.d(TAG, "AssetAdapter: " + String.valueOf(mlist.size()));
-    }
+        btnpresent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DatabaseReference db = FirebaseDatabase.getInstance().getReference()
+                        .child("Beginners").child("Students").child(aRollno).child("attendance");
+                db.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        Integer att = dataSnapshot.getValue(Integer.class);
+                        DatabaseReference dbref = FirebaseDatabase.getInstance().getReference()
+                                .child("Beginners").child("Students").child(aRollno).child("attendance");
+                        dbref.setValue(att+1);
+                        btnabsent.setVisibility(View.VISIBLE);
+                        btnpresent.setVisibility(View.GONE);
+                    }
 
-    @Override
-    public AttendanceHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        Log.d(TAG, "onCreateViewHolder: called");
-        Log.d(TAG, "onCreateViewHolder: GOT REQUEST CALLED===================");
-        LayoutInflater layoutInflater = LayoutInflater.from(mContext);
-        View view = layoutInflater.inflate(R.layout.status_cardview, parent, false);
-        return new AttendanceHolder(view);
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
 
-    }
+                    }
+                });
 
-    @Override
-    public void onBindViewHolder(final AttendanceHolder holder, final int position) {
-        if (mlist.size()!=0) {
-//            Log.d(TAG, "onBindViewHolder: called" + String.valueOf(position))
-
-            requests = mlist.get(holder.getAdapterPosition());
-            holder.tvName.setText(mlist.get(holder.getAdapterPosition()).getName());
-
-
-
-//                        Toast.makeText(mContext, pk + "dfsdfnkwfnuefer",Toast.LENGTH_LONG).show();
-
-                    notifyDataSetChanged();
-
-
-
-
-        }}
-
-    @Override
-    public int getItemCount() {
-        return mlist.size();
-    }
-
-    class AttendanceHolder extends RecyclerView.ViewHolder {
-
-        TextView tvName;
-        CheckBox cbAttendance;
-        public int p=0;
-
-        public AttendanceHolder(View itemView) {
-            super(itemView);
-
-            tvName = itemView.findViewById(R.id.tvName);
-            cbAttendance = itemView.findViewById(R.id.cbAttendance);
-            if(cbAttendance.isChecked()){
-                p=1;
             }
-        }
+        });
+        btnabsent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DatabaseReference db = FirebaseDatabase.getInstance().getReference()
+                        .child("Beginners").child("Students").child(aRollno).child("attendance");
+                db.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        Integer att = dataSnapshot.getValue(Integer.class);
+                        DatabaseReference dbref = FirebaseDatabase.getInstance().getReference()
+                                .child("Beginners").child("Students").child(aRollno).child("attendance");
+                        dbref.setValue(att-1);
+                        btnabsent.setVisibility(View.GONE);
+                        btnpresent.setVisibility(View.VISIBLE);
+                    }
 
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+
+            }
+        });
     }
 
-    public ArrayList<Student> getRequestsOb(){
-        return mlist;
+    public void setContext(Context context){
+        this.context = context;
     }
+    public void setRollno(String roll){
+        aRollno = roll;
+        rollno.setText(roll);
+    }
+    public void setName(String xname){
+        aName = xname;
+        name.setText(xname);
+    }
+
 }
