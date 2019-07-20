@@ -25,29 +25,23 @@
 					</div>
 				</div>
 				<div class="d-flex justify-content-center form_container">
-					<form>
+						
 						<div class="input-group mb-3">
-							<div class="input-group-append">
-								<span class="input-group-text"><i class="fas fa-user"></i></span>
-							</div>
-							<input type="text" name="" class="form-control input_user" value="" placeholder="username">
+							<form action="get_csv.php">
+							<input type="submit" value="Download Report" class="form-control input_user">
+							</form>
 						</div>
-						<div class="input-group mb-2">
-							<div class="input-group-append">
-								<span class="input-group-text"><i class="fas fa-key"></i></span>
-							</div>
-							<input type="password" name="" class="form-control input_pass" value="" placeholder="password">
+						<br><br>
+						<div class="input-group mb-3">
+							<form action="put_csv.php">
+							<input type="file" value="Upload Report" class="form-control input_user">
+							<input type="submit" value="Upload Report" class="form-control input_user">
+							</form>
 						</div>
-						<div class="form-group">
-							<div class="custom-control custom-checkbox">
-								<input type="checkbox" class="custom-control-input" id="customControlInline">
-								<label class="custom-control-label" for="customControlInline">Remember me</label>
-							</div>
-						</div>
-					</form>
+						
 				</div>
 				<div class="d-flex justify-content-center mt-3 login_container">
-					<button type="button" name="button" class="btn login_btn" onclick="window.location.href='loginadmin.html'">Login</button>
+					<button type="button" name="button" class="btn login_btn" onclick="window.location.href='addmentor.html'">Add Mentor</button>
 				</div>
 				
 			</div>
@@ -55,3 +49,38 @@
 	</div>
 </body>
 </html>
+
+<html>
+<link rel="stylesheet" href="style.css">
+
+<title>Admin Dashboard</title>
+<body>
+
+<div class="header">
+	<h2>ADMIN DASHBOARD</h2>
+</div>
+<form method="post" action="loginadmin.html">
+	
+	<div class="input-group">
+		<label>Email</label>
+		<input type="email" name="email" value="">
+	</div>
+	<div class="input-group">
+		<label>Password</label>
+		<input type="password" name="password_1">
+	</div>
+	
+	<div class="input-group">
+		<button type="submit" class="btn" name="submit_btn">Login</button>
+	</div>
+</form>
+</body>
+</html>
+<a href="viewReports.php" class="btn btn-info" role="button">Reports</a>
+<br>
+<br>
+<a href="addMentor.php" class="btn btn-info"
+   role="button">Allocate Mentors</a>
+    </body>
+</html>
+    
