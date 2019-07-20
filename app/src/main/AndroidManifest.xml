@@ -29,6 +29,9 @@
         <activity android:name=".BeginnerActivity" />
         <activity android:name=".ActivityView" />
         <activity android:name=".Addstudent"></activity>
+        <activity android:name=".AttendanceActivity" />
+        <activity android:name=".ViewDatabaseActivity" />
+        <activity android:name=".ViewActivitiesActivity"></activity>
     </application>
 
 </manifest>

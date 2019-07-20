@@ -1,0 +1,9 @@
+{
+    "name": "dishank/admin",
+    "type": "project",
+    "license": "GNU3",
+    "minimum-stability": "dev",
+    "require": {
+        "kreait/firebase-php": "^4.18"
+    }
+}
