@@ -32,7 +32,7 @@
         <activity android:name=".AttendanceActivity" />
         <activity android:name=".ViewDatabaseActivity" />
         <activity android:name=".ViewActivitiesActivity" />
-        <activity android:name=".ViewAttendanceActivity"></activity>
+        <activity android:name=".ViewAttendanceActivity" />
     </application>
 
 </manifest>
