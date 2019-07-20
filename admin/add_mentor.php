@@ -1,5 +1,10 @@
 <?php
 
+$name=$_POST["name"];
+$email=$_POST["email"];
+$password=$_POST["password"];
+$program=$_POST["program"];
+
 require './vendor/autoload.php';
 
 use Kreait\Firebase\Factory;
@@ -11,27 +16,27 @@ $firebase = (new Factory)
     ->withServiceAccount($serviceAccount)
     ->create();
 
+
 $database = $firebase->getDatabase();
     $newPost = $database
-    ->getReference('Beginners')->getChild('Students');
-/*    ->push([
-        'email' => 'Post title',
-        'name' => 'This should probably be longer.',
-        'token' => 'This should probably be longer.',
-        'usercontact' => 55,
-        'userImgUrl' => 'This should probably be longer.',
+    ->getReference('Mentors')
+    ->set([
+        'name' => $name,
+        'email' => $email,
+        'password' => $password,
+        'program' => $program,
     ]);
-    $newPost->getKey(); // => -KVr5eu8gcTv7_AHb-3-
+    /*$newPost->getKey(); // => -KVr5eu8gcTv7_AHb-3-
     $newPost->getUri(); // => https://my-project.firebaseio.com/blog/posts/-KVr5eu8gcTv7_AHb-3-
-  */$jsonString= json_encode($newPost->getValue()); // Fetches the data from the realtime database
-    //$jsonDecoded = json_decode($jsonString, true);
-    $outString='['.$jsonString.']';
+  /*$jsonString= json_encode($newPost->getValue()); // Fetches the data from the realtime database
+    
     $jsonDecoded = json_decode($jsonString,True);
-    unset($jsonDecoded[0]);
-    array_values($jsonDecoded);
+    //unset($jsonDecoded[0]);
+    //array_values($jsonDecoded);
+    $jsonDecoded[0] = Array("age","attendance","mobile","name","roll","saving","total");
     print_r($jsonDecoded);
 
-    $csvFileName = 'example.csv';
+    /*$csvFileName = 'Beginners_Students.csv';
  
     //Open file pointer.
     $fp = fopen($csvFileName, 'w');
@@ -49,5 +54,6 @@ $database = $firebase->getDatabase();
 
 
 
-
+print_r($array); 
+*/
 ?>

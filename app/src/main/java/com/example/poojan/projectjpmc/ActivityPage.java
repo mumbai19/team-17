@@ -1,5 +1,7 @@
 package com.example.poojan.projectjpmc;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -16,7 +18,8 @@ public class ActivityPage extends AppCompatActivity {
     android.support.v7.widget.Toolbar toolbar;
     EditText theme, name, desc;
     String aTheme, aName, aDesc;
-    Button btn;
+    Button btn, btnView;
+    DatabaseReference databaseReference;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +35,7 @@ public class ActivityPage extends AppCompatActivity {
         name = findViewById(R.id.act_name);
         desc = findViewById(R.id.act_desc);
         btn = findViewById(R.id.btn_submit);
+
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,5 +56,6 @@ public class ActivityPage extends AppCompatActivity {
                 }
             }
         });
+
     }
 }

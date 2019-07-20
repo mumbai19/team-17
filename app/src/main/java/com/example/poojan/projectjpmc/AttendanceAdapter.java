@@ -115,4 +115,11 @@ public class AttendanceAdapter extends RecyclerView.ViewHolder {
         name.setText(xname);
     }
 
+    public void setAttendance(int xattendance){
+        btnpresent.setVisibility(View.GONE);
+        attendance.setVisibility(View.VISIBLE);
+        total.setVisibility(View.VISIBLE);
+        attendance.setText(String.valueOf(xattendance));
+    }
+
 }

@@ -28,11 +28,12 @@
         <activity android:name=".ActivityPage" />
         <activity android:name=".BeginnerActivity" />
         <activity android:name=".ActivityView" />
-        <activity android:name=".Addstudent"></activity>
+        <activity android:name=".Addstudent" />
         <activity android:name=".AttendanceActivity" />
         <activity android:name=".SavingsActivity" />
         <activity android:name=".ViewDatabaseActivity" />
-        <activity android:name=".ViewActivitiesActivity"></activity>
+        <activity android:name=".ViewActivitiesActivity" />
+        <activity android:name=".ViewAttendanceActivity"></activity>
     </application>
 
 </manifest>
