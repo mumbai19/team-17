@@ -15,16 +15,26 @@ $serviceAccount = ServiceAccount::fromJsonFile('./projectjpmc-firebase-adminsdk-
 $firebase = (new Factory)
     ->withServiceAccount($serviceAccount)
     ->create();
+$auth = $firebase->getAuth();
+
+$userProperties = [
+    'email' => $email,
+    'password' => $password
+];
+$createdUser = $auth->createUser($userProperties);
+
+$user = $auth->getUserByEmail($email);
 
 
 $database = $firebase->getDatabase();
     $newPost = $database
-    ->getReference('Mentors')
+    ->getReference('user_details')->getChild($user->uid)
     ->set([
-        'name' => $name,
         'email' => $email,
-        'password' => $password,
-        'program' => $program,
+        'name' => $name,
+        'token' => $program,
+        'userContact' => 0,
+        'userImgUrl' => ''
     ]);
     /*$newPost->getKey(); // => -KVr5eu8gcTv7_AHb-3-
     $newPost->getUri(); // => https://my-project.firebaseio.com/blog/posts/-KVr5eu8gcTv7_AHb-3-
