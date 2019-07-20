@@ -30,6 +30,15 @@ public class BeginnerActivity extends AppCompatActivity {
             }
         });
 
+        savings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(BeginnerActivity.this, SavingsActivity.class);
+                startActivity(i);
+            }
+        });
+
+
         viewDatabase.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
