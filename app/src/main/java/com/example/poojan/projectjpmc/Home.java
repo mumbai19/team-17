@@ -7,7 +7,9 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -29,11 +31,18 @@ public class Home extends AppCompatActivity {
     private FirebaseUser userF;
     private TextView userName, userEmail;
     ImageView userImg;
+    private CardView beginner_card, foundation_card, transit_card, discovery_card, dream_card;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        beginner_card = findViewById(R.id.beginner_card);
+        foundation_card = findViewById(R.id.foundation_card);
+        transit_card = findViewById(R.id.transit_card);
+        discovery_card = findViewById(R.id.discovery_card);
+        dream_card = findViewById(R.id.dream_card);
 
         toolbar = findViewById(R.id.feature_req_toolbar);
         toolbar.setTitle("Home");
@@ -49,6 +58,46 @@ public class Home extends AppCompatActivity {
         toggle.syncState();
 
         auth = FirebaseAuth.getInstance();
+
+        beginner_card.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Home.this, BeginnerActivity.class);
+                startActivity(i);
+            }
+        });
+
+        foundation_card.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Home.this, BeginnerActivity.class);
+                startActivity(i);
+            }
+        });
+
+        transit_card.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Home.this, BeginnerActivity.class);
+                startActivity(i);
+            }
+        });
+
+        discovery_card.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Home.this, BeginnerActivity.class);
+                startActivity(i);
+            }
+        });
+
+        dream_card.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Home.this, BeginnerActivity.class);
+                startActivity(i);
+            }
+        });
 
         final NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(
