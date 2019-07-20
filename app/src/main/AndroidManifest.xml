@@ -24,7 +24,8 @@
         <activity android:name=".Register" />
         <activity android:name=".Login" />
         <activity android:name=".Home" />
-        <activity android:name=".AccountSetting"></activity>
+        <activity android:name=".AccountSetting" />
+        <activity android:name=".ActivityPage"></activity>
     </application>
 
 </manifest>
