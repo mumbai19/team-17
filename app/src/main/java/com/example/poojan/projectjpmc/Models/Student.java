@@ -1,14 +1,15 @@
-package com.example.poojan.projectjpmc;
+package com.example.poojan.projectjpmc.Models;
 
 public class Student {
 
-    private String name, mobile;
-    private int roll, age, saving, attendance, total;
+    private String name, roll;
+    private int age, saving, attendance, total;
+    private long mobile;
 
     public Student() {
     }
 
-    public Student(String name, String mobile, int roll, int age, int saving, int attendance, int total) {
+    public Student(String name, Long mobile, String roll, int age, int saving, int attendance, int total) {
         this.name = name;
         this.mobile = mobile;
         this.roll = roll;
@@ -26,19 +27,19 @@ public class Student {
         this.name = name;
     }
 
-    public String getMobile() {
+    public long getMobile() {
         return mobile;
     }
 
-    public void setMobile(String mobile) {
+    public void setMobile(long mobile) {
         this.mobile = mobile;
     }
 
-    public int getRoll() {
+    public String getRoll() {
         return roll;
     }
 
-    public void setRoll(int roll) {
+    public void setRoll(String roll) {
         this.roll = roll;
     }
 

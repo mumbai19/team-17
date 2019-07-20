@@ -4,6 +4,7 @@
     "license": "GNU3",
     "minimum-stability": "dev",
     "require": {
-        "kreait/firebase-php": "^4.18"
+        "kreait/firebase-php": "^4.18",
+        "php": ">= 7.2.0"
     }
 }

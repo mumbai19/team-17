@@ -1,30 +1,29 @@
 package com.example.poojan.projectjpmc;
 
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 
 import com.example.poojan.projectjpmc.Models.Student;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class AttendanceActivity extends AppCompatActivity {
+public class ViewAttendanceActivity extends AppCompatActivity {
 
     android.support.v7.widget.Toolbar toolbar;
     RecyclerView recyclerView;
     LinearLayoutManager layoutManager;
     FirebaseRecyclerAdapter<Student, AttendanceAdapter> adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_attendance);
+        setContentView(R.layout.activity_view_attendance);
 
         toolbar = findViewById(R.id.attend_toolbar);
-        toolbar.setTitle("Attendance Update");
+        toolbar.setTitle("Attendance View");
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -58,6 +57,7 @@ public class AttendanceActivity extends AppCompatActivity {
                 attendanceAdapter.setRollno(student.getRoll());
                 attendanceAdapter.setContext(getApplicationContext());
                 attendanceAdapter.setName(student.getName());
+                attendanceAdapter.setAttendance(student.getAttendance());
             }
         };
         recyclerView.setAdapter(adapter);

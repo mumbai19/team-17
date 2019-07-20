@@ -25,13 +25,11 @@ public class ActivityPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_page);
 
-//        toolbar = findViewById(R.id.accout_setting);
-//        toolbar.setTitle("Activity Page");
-       // setSupportActionBar(toolbar);
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//        getSupportActionBar().setDisplayShowHomeEnabled(true);
-
-        databaseReference = FirebaseDatabase.getInstance().getReference("Beginners").child("activities");
+        toolbar = findViewById(R.id.activity_page_toolbar);
+        toolbar.setTitle("Activity Page");
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         theme = findViewById(R.id.act_theme);
         name = findViewById(R.id.act_name);
@@ -53,10 +51,8 @@ public class ActivityPage extends AppCompatActivity {
                 }else if(TextUtils.isEmpty(aDesc)){
                     Toast.makeText(ActivityPage.this, "Enter the description", Toast.LENGTH_SHORT).show();
                 }else{
-                    String key = databaseReference.push().getKey();
-                    Activities activity = new Activities(aTheme, aName, aDesc);
-                    databaseReference.child(key).setValue(activity);
-                    Toast.makeText(ActivityPage.this, "Activity Added", Toast.LENGTH_SHORT).show();
+                    DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("Beginner").child("Activity");
+                    db.push().setValue(aDesc);
                 }
             }
         });

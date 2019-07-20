@@ -13,6 +13,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
+import com.example.poojan.projectjpmc.Models.Student;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -69,7 +70,7 @@ public class ViewDatabaseActivity extends AppCompatActivity {
         sp=getSharedPreferences("p1",MODE_PRIVATE);
 
 
-        keylist = new ArrayList<>();
+        /*keylist = new ArrayList<>();
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("students").child(auth.getUid());
         Log.d(TAG, "onCreate: HERE====================================");
         mDatabaseRef.addValueEventListener(new ValueEventListener() {
@@ -116,7 +117,7 @@ public class ViewDatabaseActivity extends AppCompatActivity {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         adapter = new AttendanceAdapter(this, list,1);
-        recyclerView.setAdapter(adapter);
+        recyclerView.setAdapter(adapter);*/
     }
 
 }
