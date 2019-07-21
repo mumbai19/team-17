@@ -12,16 +12,20 @@ $firebase = (new Factory)
     ->create();
 
     $array = $fields = array(); $i = 1;
-$handle = @fopen("Beginners_Students.csv", "r");
+$handle = @fopen('Beginners_Students.csv', "r");
 $array[0]=null;
 if ($handle) {
     while (($row = fgetcsv($handle, 4096)) !== false) {
         if (empty($fields)) {
             $fields = $row;
             continue;
+            
         }
         foreach ($row as $k=>$value) {
-            if(is_numeric($value)){
+            if($fields[$k]=="roll"){
+
+            }
+            else if(is_numeric($value)){
                 $value=(int)$value;
             }
             $array[$i][$fields[$k]] = $value;
@@ -67,5 +71,5 @@ $database = $firebase->getDatabase();
 
 */
 
-print_r($array);
+//print_r($_POST['files']);
 ?>
