@@ -49,6 +49,7 @@ public class SavingsAdapter extends RecyclerView.ViewHolder {
     Button reset,update;
     int saving;
     String aRollno, aName,savings;
+    int savi;
     Context context;
     public SavingsAdapter(View itemView) {
         super(itemView);
@@ -58,6 +59,7 @@ public class SavingsAdapter extends RecyclerView.ViewHolder {
         saved=itemView.findViewById(R.id.savings);
         update=itemView.findViewById(R.id.btn_update);
         reset=itemView.findViewById(R.id.btn_reset);
+
         update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -79,6 +81,7 @@ public class SavingsAdapter extends RecyclerView.ViewHolder {
                                 .child("Beginners").child("Students").child(aRollno).child("saving");
 
                         dbref.setValue(saving);
+                        Toast.makeText(context, "Savings Added", Toast.LENGTH_SHORT).show();
                         }
 
                     @Override
@@ -122,7 +125,10 @@ public class SavingsAdapter extends RecyclerView.ViewHolder {
         aName = xname;
         name.setText(xname);
     }
-
+    public void setSavings(int sav){
+        savi = sav;
+        saved.setText(String.valueOf(savi));
+    }
 }
 
 
