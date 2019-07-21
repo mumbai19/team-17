@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ProjectJPMC</string>
+    <string name="app_name">Together we can</string>
     <string name="minimum_password">Password too short, enter minimum 6 characters!</string>
     <string name="auth_failed">Please, check your email and password or Sign up</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
