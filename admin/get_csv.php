@@ -28,7 +28,7 @@ $database = $firebase->getDatabase();
     $jsonDecoded = json_decode($jsonString,True);
     //unset($jsonDecoded[0]);
     //array_values($jsonDecoded);
-    $jsonDecoded[0] = Array("age","attendance","mobile","name","roll","saving","total");
+    $jsonDecoded[0] = Array("age","attendance","gr1","gr2","gr3","gr4","gr5","mobile","name","roll","saving","total");
     print_r($jsonDecoded);
 
     $csvFileName = 'Beginners_Students.csv';
@@ -44,7 +44,6 @@ $database = $firebase->getDatabase();
      
     //Finally, close the file pointer.
     fclose($fp);
-    
 
 
 
