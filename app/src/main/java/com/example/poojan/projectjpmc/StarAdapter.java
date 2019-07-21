@@ -204,9 +204,5 @@ public class StarAdapter extends RecyclerView.ViewHolder {
         b3.setVisibility(View.GONE);
         b4.setVisibility(View.GONE);
         b5.setVisibility(View.GONE);
-
-
-
-
     }
 }
