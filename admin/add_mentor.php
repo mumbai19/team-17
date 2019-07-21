@@ -63,7 +63,8 @@ $database = $firebase->getDatabase();
 
 
 
-
 print_r($array); 
 */
+
+echo "<script>window.location.href='loginadmin.html'</script>";
 ?>
