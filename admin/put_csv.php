@@ -12,7 +12,7 @@ $firebase = (new Factory)
     ->create();
 
     $array = $fields = array(); $i = 1;
-$handle = @fopen("Beginners_Students.csv", "r");
+$handle = @fopen('Beginners_Students.csv', "r");
 $array[0]=null;
 if ($handle) {
     while (($row = fgetcsv($handle, 4096)) !== false) {
@@ -22,7 +22,10 @@ if ($handle) {
             
         }
         foreach ($row as $k=>$value) {
-            if(is_numeric($value)){
+            if($fields[$k]=="roll"){
+
+            }
+            else if(is_numeric($value)){
                 $value=(int)$value;
             }
             $array[$i][$fields[$k]] = $value;
@@ -38,7 +41,7 @@ array_values($array);
 
 $database = $firebase->getDatabase();
     $newPost = $database
-    ->getReference('Beginners')->getChild('Students')
+    ->getReference('Beginners')->getChild('Students2')
     ->set($array);
     /*$newPost->getKey(); // => -KVr5eu8gcTv7_AHb-3-
     $newPost->getUri(); // => https://my-project.firebaseio.com/blog/posts/-KVr5eu8gcTv7_AHb-3-
@@ -68,5 +71,5 @@ $database = $firebase->getDatabase();
 
 */
 
-print_r($array);
+//print_r($_POST['files']);
 ?>

@@ -44,7 +44,6 @@ $database = $firebase->getDatabase();
      
     //Finally, close the file pointer.
     fclose($fp);
-    
 
 
 
